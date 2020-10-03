@@ -32,8 +32,7 @@ variable "mysql_user" {
 }
 
 variable "mysql_password" {
-  type    = string
-  default = "microservices"
+  type    = string  
 }
 
 variable "mysql_database" {
