@@ -38,5 +38,5 @@ variable "mysql_database" {
 
 variable "route53_id" {
   description = "The ID of the Route 53 resource for this VPC. Needed so a DNS record for the RDS instance can be added."
-  type = string
+  type        = string
 }

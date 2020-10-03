@@ -67,20 +67,10 @@ resource "aws_elasticache_cluster" "redis-db" {
   security_group_ids = [aws_security_group.db-security-group.id]
 }
 
-# Need endoint from RDS instance
-# microservices-mysql.cvwyhqlgawf0.eu-west-2.rds.amazonaws.com 
 # Setup a Route53 DNS entry for RDS routing
 data "aws_route53_zone" "private-zone" {
-  id         = var.route53_id
+  id           = var.route53_id
   private_zone = true
-}
-
-resource "aws_route53_record" "rds-instance" {
-  zone_id = var.route53_id
-  name    = "www.example.com"
-  type    = "A"
-  ttl     = "300"
-  records = [aws_eip.lb.public_ip]
 }
 
 resource "aws_route53_record" "rds-instance" {
