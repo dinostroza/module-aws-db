@@ -69,12 +69,12 @@ resource "aws_elasticache_cluster" "redis-db" {
 
 # Setup a Route53 DNS entry for RDS routing
 data "aws_route53_zone" "private-zone" {
-  id           = var.route53_id
+  zone_id           = var.route53_id
   private_zone = true
 }
 
 resource "aws_route53_record" "rds-instance" {
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = var.route53_id
   name    = "www.rds.${data.aws_route53_zone.private-zone.name}"
   type    = "A"
   ttl     = "300"
