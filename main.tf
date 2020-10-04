@@ -78,5 +78,5 @@ resource "aws_route53_record" "rds-instance" {
   name    = "www.rds.${data.aws_route53_zone.private-zone.name}"
   type    = "A"
   ttl     = "300"
-  records = [aws_db_instance.mysql-db.endpoint]
+  records = [aws_db_instance.mysql-db.address]
 }
