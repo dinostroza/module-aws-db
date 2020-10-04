@@ -75,8 +75,8 @@ data "aws_route53_zone" "private-zone" {
 
 resource "aws_route53_record" "rds-instance" {
   zone_id = var.route53_id
-  name    = "www.rds.${data.aws_route53_zone.private-zone.name}"
-  type    = "A"
+  name    = "rds.${data.aws_route53_zone.private-zone.name}"
+  type    = "CNAME"
   ttl     = "300"
   records = [aws_db_instance.mysql-db.address]
 }
