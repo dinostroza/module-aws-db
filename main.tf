@@ -69,7 +69,7 @@ resource "aws_elasticache_cluster" "redis-db" {
 
 # Setup a Route53 DNS entry for RDS routing
 data "aws_route53_zone" "private-zone" {
-  zone_id           = var.route53_id
+  zone_id      = var.route53_id
   private_zone = true
 }
 

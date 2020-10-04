@@ -2,10 +2,6 @@ variable "aws_region" {
   type = string
 }
 
-variable "tf_group_name" {
-  type = string
-}
-
 variable "eks_id" {
   type = string
 }
@@ -32,7 +28,7 @@ variable "mysql_user" {
 }
 
 variable "mysql_password" {
-  type    = string  
+  type = string
 }
 
 variable "mysql_database" {
