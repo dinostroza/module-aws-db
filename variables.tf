@@ -3,37 +3,45 @@ variable "aws_region" {
 }
 
 variable "eks_id" {
-  type = string
+  description = "The identifier of the EKS cluster that hosts the microservices that need access to databases"
+  type        = string
 }
 
 variable "vpc_id" {
-  type = string
+  description = "The identifier of the VPC that contains the microservices EKS cluster"
+  type        = string
 }
 
 variable "subnet_a_id" {
-  type = string
+  description = "Subnet A for the database instance"
+  type        = string
 }
 
 variable "subnet_b_id" {
-  type = string
+  description = "Subnet B for the database instance"
+  type        = string
 }
 
 variable "env_name" {
-  type = string
+  description = "The environment name - used for resource naming and tagging"
+  type        = string
 }
 
 variable "mysql_user" {
-  type    = string
-  default = "microservices"
+  description = "The mysql user id that will be set for the RDS database instance"
+  type        = string
+  default     = "microservices"
 }
 
 variable "mysql_password" {
-  type = string
+  description = "The mysql password that will be set for the RDS database instance"
+  type        = string
 }
 
 variable "mysql_database" {
-  type    = string
-  default = "microservices_db"
+  description = "The name of the RDS database instance"
+  type        = string
+  default     = "microservices_db"
 }
 
 variable "route53_id" {

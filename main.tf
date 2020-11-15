@@ -20,11 +20,11 @@ resource "aws_security_group" "db-security-group" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description     = "All traffic from managed EKS"
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    security_groups = data.aws_eks_cluster.microservice-cluster.vpc_config.0.security_group_ids
+    description = "All traffic from managed EKS"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    #security_groups = data.aws_eks_cluster.microservice-cluster.vpc_config.0.security_group_ids
   }
 }
 
