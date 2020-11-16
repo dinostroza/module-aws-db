@@ -24,6 +24,7 @@ resource "aws_security_group" "db-security-group" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
+    self        = true
     #security_groups = data.aws_eks_cluster.microservice-cluster.vpc_config.0.security_group_ids
   }
 }
