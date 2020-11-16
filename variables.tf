@@ -7,6 +7,11 @@ variable "eks_id" {
   type        = string
 }
 
+variable "eks_sg_id" {
+  description = "The identifier of the EKS cluster's security group. We need this to configure network access to the databases"
+  type        = string
+}
+
 variable "vpc_id" {
   description = "The identifier of the VPC that contains the microservices EKS cluster"
   type        = string

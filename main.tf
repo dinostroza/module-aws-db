@@ -52,7 +52,7 @@ resource "aws_db_instance" "mysql-db" {
   skip_final_snapshot = true
 
   db_subnet_group_name   = aws_db_subnet_group.rds-subnet-group.name
-  vpc_security_group_ids = [data.aws_security_group.default.id]
+  vpc_security_group_ids = [var.eks_sg_id]
 }
 
 # Elasticache subnet group
