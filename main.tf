@@ -4,13 +4,13 @@ provider "aws" {
 
 # Lookup the EKS cluster that we created for the Microservices
 data "aws_eks_cluster" "microservice-cluster" {
-  name = "${var.eks_id}"
+  name = var.eks_id
 }
 
 # The RDS subnet group that points to the subnets we've declared above
 resource "aws_db_subnet_group" "rds-subnet-group" {
   name       = "${var.env_name}-rds-subnet-group"
-  subnet_ids = ["${var.subnet_a_id}", "${var.subnet_b_id}"]
+  subnet_ids = [var.subnet_a_id, var.subnet_b_id]
 }
 
 # Create a security group to allow traffic from the EKS cluster
@@ -42,7 +42,7 @@ resource "aws_db_instance" "mysql-db" {
   engine            = "mysql"
   engine_version    = "5.7"
   instance_class    = "db.t2.micro"
-  name              = var.mysql_database
+  db_name              = var.mysql_database
   identifier        = "microservices-mysql"
 
   username             = var.mysql_user
@@ -58,7 +58,7 @@ resource "aws_db_instance" "mysql-db" {
 # Elasticache subnet group
 resource "aws_elasticache_subnet_group" "redis-subnet-group" {
   name       = "${var.env_name}-elasticache-subnet-group"
-  subnet_ids = ["${var.subnet_a_id}", "${var.subnet_b_id}"]
+  subnet_ids = [var.subnet_a_id, var.subnet_b_id]
 }
 
 resource "aws_elasticache_cluster" "redis-db" {
